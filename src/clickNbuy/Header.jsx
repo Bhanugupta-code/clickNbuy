@@ -2,15 +2,14 @@ import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css'; // Corrected bootstrap import
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './project.css';
-import { faMagnifyingGlass, faUser, faMessage, faHeart } from '@fortawesome/free-solid-svg-icons';
+import { faMagnifyingGlass, faUser } from '@fortawesome/free-solid-svg-icons';
 import Items from './itemslist';
 import { Display1 } from './display';
 import Navbar from './Navbar';
 
-export const Header1 = () => {
+export const Header1 = ({ login}) => {
   const [b, setB] = useState([]);                                                     // Initialize with an empty array
-
-
+   
   //For show Search box in Header.
   const Search = () => {
     document.getElementById('Search').style.display = 'block';
@@ -26,20 +25,19 @@ export const Header1 = () => {
 
   return (
     <div className="container">
-      <div className=" d-md-flex flex-md-row flex-column p-1 border-bottom justify-content-between border-dark fontStyle">
+      <div className=" d-md-flex flex-md-row flex-column p-1 border-bottom justify-content-center border-dark fontStyle">
         <div className="px-3">
           <h1 className="text-center">Click N Buy</h1>
         </div>
-        <div className="w-25 m-auto gap-2 d-flex justify-content-center">
+        <div className="w-75 m-auto gap-2 d-flex justify-content-center justify-content-md-end">
           <FontAwesomeIcon
             className="p-3 arrow fs-3"
             icon={faMagnifyingGlass}
             onClick={Search}
           />
-          <a href="Login_Logout.jsx" ><FontAwesomeIcon className="p-3 arrow fs-3" icon={faUser}/></a>
-          <FontAwesomeIcon className="p-3 arrow fs-3" icon={faHeart} />
-          <FontAwesomeIcon className="p-3 arrow fs-3" icon={faMessage} />
+          <FontAwesomeIcon className="p-3 arrow fs-3" icon={faUser} onClick={() => window.location.href="/" }/>
         </div>
+        
       </div>
       <div id="Search" className="container p-2 rounded-2 m-2 text-center bg-dark-subtle"
         style={{ display: 'none' }}                                   // Initially hide the search box
@@ -91,9 +89,9 @@ export const Header2 = () => {
 
   return (
     <>
-      <div className="container my-4 d-flex justify-content-around pt-4">
-        <div className="list py-2 px-5 rounded-5 bg-body-secondary">
-          <ul className="list-unstyled text-decoration-none d-flex w-100 gap-md-5 gap-3 fs-3 justify-content-evenly">
+      <div className="container my-3 d-flex justify-content-around pt-4">
+        <div className="list head py-1 pt-3 px-2 px-md-5 rounded-5 bg-body-secondary">
+          <ul className="list-unstyled text-decoration-none d-flex w-100 gap-md-5 gap-3 fs-2 justify-content-evenly">
             <Navbar uniquelist={uniquelist} Filter={Filter} />
           </ul>
         </div>

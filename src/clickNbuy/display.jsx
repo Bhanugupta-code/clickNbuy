@@ -21,7 +21,7 @@ export const Display1 = ({ filtered = [], item }) => {
     };
     if (item) {
         return (
-            <div key={item.id} className="p-1 width3 d-inline-block h-50 rounded-3">
+            <div key={item.id} className="p-1 width3 d-inline-block rounded-3">
 
                 <div className="img-thumbnail  width2 mx-auto height3">
                     <img src={item.image} alt='' id="popup" className='w-100 d-inline-block rounded-1 h-100' />
@@ -71,7 +71,7 @@ export const Display2 = () => {
     return (
         <div>
             <div class="main_box container p-1">
-                <div className="container d-flex justify-content-evenly">
+                <div className="container d-flex flex-column flex-md-row justify-content-evenly">
                     <div class="box">
                         <h2>
                             <center>Deals on Top Brands</center>
@@ -99,8 +99,8 @@ export const Display2 = () => {
                     <h1>
                         <center> TOP DEALS </center>
                     </h1>
-                    <div class="box3">
-                        <div class="box2_box">
+                    <div class="box3 d-flex flex-wrap flex-md-row justify-content-evenly">
+                        <div class="box2_box ">
                             <img src={headphone} alt="" width="80%" height="200px" />
                             <h4><center><a href="accessories.html">Boat Headphone</a></center></h4>
                         </div>

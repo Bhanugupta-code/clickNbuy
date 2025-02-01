@@ -15,7 +15,7 @@ function ControlledCarousel() {
   };
 
   return (
-    <div className="container crousel hector pt-2 w-100 h-100 bg-body-tertiary rounded-2 p-1">
+    <div className="container crousel hector pt-2 w-100 bg-body-tertiary rounded-2 p-1">
       <Carousel activeIndex={index} onSelect={handleSelect}>
         <Carousel.Item>
           <img

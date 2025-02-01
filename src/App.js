@@ -1,37 +1,24 @@
-import React, { Component } from 'react';
-import Holder from './clickNbuy/Holder'
-import { Login, Register } from './clickNbuy/Login_Logout'
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import Holder from './clickNbuy/Holder';
+import { AuthForm } from './clickNbuy/AuthForm.jsx'; 
 
+const App = () => {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
 
-export class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isregister: true,
-      istoggle: false,
-      name: null,
-      password: null,
-    }
+  const handleAuth = () => {
+    setIsAuthenticated(true);
   };
-  registrationHandler = (event) => {
-    console.log(event.target.name);
-    this.setState({ isregister: true });
-  };
-  toggleHa = (event) => {
-    console.log(event);
-    this.setState({ istoggle: !this.state.istoggle });
-  }
 
-  render() {
-    return (
-      <div>
-        {this.state.isregister ?
-          (<Holder />) :
-          (this.state.istoggle ? (<Login toggle={this.toggleHa} submit={this.registrationHandler} />) : <Register submit={this.registrationHandler} toggle={this.toggleHa} />)}
-
-      </div>
-    )
-  }
-}
+  return (
+    <Router>
+      <Routes>
+        {/* Redirect to main page if authenticated, otherwise show login/register */}
+        <Route path="/" element={isAuthenticated ? <Navigate to="/main" /> : <AuthForm onAuth={handleAuth} />} />
+        <Route path="/main" element={isAuthenticated ? <Holder /> : <Navigate to="/" />} />
+      </Routes>
+    </Router>
+  );
+};
 
 export default App;

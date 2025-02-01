@@ -33,6 +33,7 @@ li:hover span {
 
 .width {
     width: 22%;
+    height: 300px;
 }
 
 .width2 {
@@ -40,7 +41,7 @@ li:hover span {
 }
 
 .height {
-    height: 87% !important;
+    height: 80% !important;
 }
 
 .main_box {
@@ -63,7 +64,7 @@ li:hover span {
 
 .box2 {
     width: 100%;
-    height: 350px;
+    height: fit-content;
     border-radius: 1%;
 }
 
@@ -76,7 +77,8 @@ li:hover span {
 .box2_box {
     width: 18%;
     margin: 1%;
-    height: 270px;
+    max-height: 270px;
+    min-height: fit-content;
     background-color: rgb(215, 202, 202);
     border-radius: 2%;
 }
@@ -84,6 +86,7 @@ li:hover span {
 .box2_box a {
     color: black;
     text-decoration: none;
+    font-size: calc( 0.7vw + 5px );
 }
 
 .box2_box img {
@@ -99,7 +102,7 @@ li:hover span {
 }
 
 .box3 {
-    height: 290px;
+    height: fit-content;
     width: 100%;
     display: inline-flex;
     margin-top: 0px;
@@ -133,15 +136,19 @@ li:hover span {
 }
 
 .height3 {
-    height: 350px !important;
+    height: 300px !important;
 }
 
 .width3 {
     width: 24%;
+    height: 360px;
 }
 
 .bac {
-    background-image: url("./resimage/back.jpeg");
+    background-image: url("./resimage/back (2).jpeg");
+    width: 100%;
+    height: 100%;
+    background-size: cover;
     position: fixed;
     top: 0;
     left: 0;
@@ -149,9 +156,11 @@ li:hover span {
     bottom: 0;
 }
 
+
 .bac2 {
-    background-color: rgba(0, 0, 0, 0.37);
+    background-color: rgba(0, 0, 0, 0.6);
     margin: 25vh;
+    width: 30%!important;
 }
 
 .bord {
@@ -165,8 +174,70 @@ li:hover span {
 .widt2 {
     min-width: 300px;
 }
-@media only screen and (max-width : 700px)  {
+.head ul li{
+    font-size: calc( 5px + 1vw );
+}
+#hd{
+    font-size: calc(0.7vw + 5px);
+}
+
+
+
+@media only screen and (max-width : 1238px)  {
+
+.bac2{
+    width: 50%!important;
+}
+
+}
+
+
+
+@media only screen and (max-width : 768px)  {
   .arrow{
     font-size: 3vw;
   }
+ 
+  .head ul li{
+    font-size: calc( 10px + 0.7vw );
+  }
+  .box{
+width: 100%;
+  }
+  .box2_box{
+    width: 40%!important;
+    max-height: fit-content;
+}
+.box2_box h4 a{
+      font-size:medium;
+  }
+  .width{
+    width: 46%;
+
+  }
+  #hd{
+    font-size: small;
+  }
+  .width3{
+    width: 48%;
+  }
+  .bac2{
+    width: 80%!important;
+  }
+}
+
+
+
+@media only screen and (max-width : 480px)  {
+
+.width{
+    width: 90%;
+}
+.box2_box{
+    width: 90%!important;
+}
+#hd{
+    font-size: calc( 1vw + 15px );
+}
+
 }

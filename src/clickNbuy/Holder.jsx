@@ -8,7 +8,7 @@ import './project.css'
 const Holder = () => {
   return (
     <div>
-      <Header1 />
+      <Header1 login="Login_Logout.jsx" />
       <ControlledCarousel />
       <Display2 />
       <Header2 />
