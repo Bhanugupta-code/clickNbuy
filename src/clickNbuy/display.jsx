@@ -8,64 +8,44 @@ import shirt from './resimage/WhatsApp Image 2023-07-08 at 14.45.25.jpg'
 import shir from './resimage/shirt.jpg'
 import lap from './resimage/lap.jpg'
 import watch from './resimage/watch.jpg'
-import { useState } from 'react'
-export const Display1 = ({ filtered = [], item }) => {
-    const [selectedImage, setSelectedImage] = useState(null);
-
+import { useNavigate } from 'react-router-dom'
+import '../../node_modules/bootstrap/dist/css/bootstrap.min.css'
+export const Display1 = ({ filtered = [], item , setproductDetailData}) => {
+    const navigate = useNavigate();
     const handleImageClick = (curelem) => {
-        setSelectedImage(curelem);
+        setproductDetailData(curelem);
+        navigate("productdetails");
     };
-
-    const closePopup = () => {
-        setSelectedImage(null);
-    };
-    if (item) {
-        return (
-            <div key={item.id} className="p-1 width3 d-inline-block rounded-3">
-
-                <div className="img-thumbnail  width2 mx-auto height3">
-                    <img src={item.image} alt='' id="popup" className='w-100 d-inline-block rounded-1 h-100' />
-                </div>
-                <div className="px-5 py-2">
-                    <h6 id='hd' className='text-center'>{item.name}</h6>
-                    {/* <h6>{item.category}</h6>
-                <h6>{item.price}</h6> */}
-                </div>
-            </div>
-        );
-    }
     return (
 
-        <div className='container mt-2 '>
-            <div className="container d-flex flex-wrap gap-3 p-2 align-content-around bg-body-tertiary justify-content-around w-100">
-                {filtered.map((curelem) => (
-                    <div key={curelem.id} className="p-1 width justify-content-evenly h-50! bg-body-secondary rounded-3">
-
-                        <div className="img-thumbnail  width2 mx-auto height" onClick={() => handleImageClick(curelem)}>
-                            <img src={curelem.image} alt='' id="popup" className='w-100 d-inline-block rounded-1 h-100' />
-                        </div>
-                        <div className="px-5 py-2">
-                            <h6 id='hd' className='text-center'>{curelem.name}</h6>
-                            {/* <h6>{curelem.category}</h6>
-                            <h6>{curelem.price}</h6> */}
-                        </div>
-                    </div>
-                ))}
-            </div>
-            {selectedImage && (
-                <div className="popup" onClick={closePopup} style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0, background: 'rgba(0, 0, 0, 0.8)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white' }}>
-                    <div className=' text-center'>
-                        <img src={selectedImage.image} alt={selectedImage.title} style={{ paddingBottom: "3px", maxWidth: '98%', borderRadius: "10px", maxHeight: '98%', width: "auto", height: "auto" }} />
-                        <p>{selectedImage.name}</p>
-                        <p>{selectedImage.category}</p>
-                        <p>{selectedImage.price}</p>
-                    </div>
-                </div>
-            )}
+      <div className="container mt-4 pt-2">
+  <div className="container d-flex flex-wrap gap-4 p-3 align-content-around bg-body-tertiary justify-content-center w-100">
+    {filtered.map((curelem) => (
+      <div
+        key={curelem.id}
+        className="p-3 bg-body-secondary rounded-4 shadow-sm d-flex flex-column align-items-center card-hover"
+        style={{ width: "220px", height: "320px", transition: "0.3s ease-in-out" }}
+        onClick={() => handleImageClick(curelem)}
+      >
+        <div className="w-100 mb-3" style={{ height: "85%" }}>
+          <img
+            src={curelem.image}
+            alt={curelem.name}
+            className="img-fluid rounded-2 h-100 w-100 object-fit-cover shadow-sm"
+            style={{ transition: "transform 0.3s" }}
+          />
         </div>
+        <div className="text-center">
+          <h6 className="mb-0 fw-semibold text-dark">{curelem.name}</h6>
+        </div>
+      </div>
+    ))}
+  </div>
+
+</div>
+
     );
 };
-
 
 export const Display2 = () => {
     return (

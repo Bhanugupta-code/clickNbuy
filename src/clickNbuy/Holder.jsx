@@ -5,13 +5,13 @@ import Footer from './footer'
 import ControlledCarousel from './crousel'
 import './project.css'
 
-const Holder = () => {
+const Holder = ({ setproductDetailData}) => {
   return (
     <div>
       <Header1 login="Login_Logout.jsx" />
       <ControlledCarousel />
       <Display2 />
-      <Header2 />
+      <Header2  setproductDetailData={setproductDetailData}  />
       <Footer />
     </div>
   )

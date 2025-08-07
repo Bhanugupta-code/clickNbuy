@@ -17,6 +17,13 @@ ul li:hover {
     transition: 500ms ease-in-out;
 }
 
+.card-hover:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+
 span {
     position: absolute;
     content: "";
@@ -33,15 +40,16 @@ li:hover span {
 
 .width {
     width: 22%;
-    height: 300px;
+    height: fit-content;
 }
 
 .width2 {
     width: 90%;
+    height: 270px!important;
 }
 
 .height {
-    height: 80% !important;
+    height: 300px !important;
 }
 
 .main_box {
@@ -141,7 +149,7 @@ li:hover span {
 
 .width3 {
     width: 24%;
-    height: 360px;
+    height: 330px;
 }
 
 .bac {

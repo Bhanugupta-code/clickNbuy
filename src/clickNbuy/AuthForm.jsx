@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './project.css';
-
+import axios from 'axios';
 export const AuthForm = ({ onAuth }) => {
     const [isRegister, setIsRegister] = useState(false);
     const [username, setUsername] = useState('');
@@ -28,9 +28,19 @@ export const AuthForm = ({ onAuth }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        const data = {
+            username : username,
+            password : password,
+        }
         if (!error && !passwordError && username) {
             alert(isRegister ? "Registration Successful! 🎉" : "Login Successful! ✅");
-            onAuth();  // Call authentication function
+            onAuth(); 
+            axios.post("http://localhost:3003/users",data).then(()=>{
+                console.log("Data Sent Successfully.");
+            })
+            .catch((err)=>{
+                console.log("Error : " + err);
+            })
             navigate('/main');
         }
     };
